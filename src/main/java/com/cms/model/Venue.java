@@ -19,5 +19,8 @@ public class Venue {
     private String address;
     private int capacity;
     private String type;
-
+    
+    public void setVenueId (Long venueId){
+        this.venueId=venueId;
+    }
 }

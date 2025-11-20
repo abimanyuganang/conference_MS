@@ -25,4 +25,7 @@ public class Conference {
     @OneToMany(mappedBy = "conference")
     private List<PaperSubmission> paperSubmissions;
 
+    public void setConfId (Long confId){
+        this.confId=confId;
+    }
 }

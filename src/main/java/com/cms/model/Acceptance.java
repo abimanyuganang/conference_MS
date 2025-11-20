@@ -25,4 +25,7 @@ public class Acceptance {
     @JoinColumn(name = "paper_id")
     private PaperSubmission paperSubmission;
 
+    public void setAcceptId (Long acceptId){
+        this.acceptId=acceptId;
+    }
 }

@@ -29,4 +29,7 @@ public class Attendance {
     @JoinColumn(name = "venue_id")
     private Venue venue;
 
+    public void setAttendanceId (Long attendanceId){
+        this.attendanceId=attendanceId;
+    }
 }

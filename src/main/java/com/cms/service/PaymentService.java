@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service  
-public class PaymentServie {
+public class PaymentService {
 
     private final PaymentRepo paymentRepo;
 
     
     @Autowired
-    public PaymentServie(PaymentRepo paymentRepo) {
+    public PaymentService(PaymentRepo paymentRepo) {
         this.paymentRepo = paymentRepo;
     }
 

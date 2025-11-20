@@ -24,4 +24,7 @@ public class Author {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public void setAuthordId (Long authorId){
+        this.authorId=authorId;
+    }
 }
