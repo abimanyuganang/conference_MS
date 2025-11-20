@@ -25,5 +25,9 @@ public class Certificate {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    
+
+    public void setCertId(Long certId) {
+        this.certId = certId;
+    }
+
 }

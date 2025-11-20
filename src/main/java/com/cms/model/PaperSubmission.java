@@ -30,5 +30,8 @@ public class PaperSubmission {
     @ManyToOne
     @JoinColumn(name = "conf_id")
     private Conference conference;
-
+ 
+    public void setSubmissionId (Long submissionId){
+        this.submissionId=submissionId;
+    }
 }

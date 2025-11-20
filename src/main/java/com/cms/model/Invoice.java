@@ -24,5 +24,8 @@ public class Invoice {
     @ManyToOne
     @JoinColumn(name = "payment_id")
     private Payment payment;
-
+     
+    public void setInvoiceId (Long invoiceId){
+        this.invoiceId=invoiceId;
+    }
 }

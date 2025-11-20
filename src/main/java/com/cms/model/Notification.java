@@ -20,4 +20,7 @@ public class Notification {
     private String dataSent;
     private String status;
     
+    public void setNotfId (Long notfId){
+        this.notfId=notfId;
+    }
 }

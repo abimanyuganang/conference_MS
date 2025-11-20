@@ -22,4 +22,7 @@ public class Schedule {
     private String time;
     private String room;
     
+    public void setScheduleId (Long scheduleId){
+        this.scheduleId=scheduleId;
+    }
 }

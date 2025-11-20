@@ -28,4 +28,8 @@ public class Registration {
     @JoinColumn(name = "conf_id")
     private Conference conference;
 
+    public void setRegId (Long regId){
+        this.regId=regId;
+    }
+
 }

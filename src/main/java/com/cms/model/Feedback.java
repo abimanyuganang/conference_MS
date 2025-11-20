@@ -25,4 +25,7 @@ public class Feedback {
     @JoinColumn(name = "user_id")
     private User user;
     
+    public void setFeedbackId (Long feedbackId){
+        this.feedbackId=feedbackId;
+    }
 }

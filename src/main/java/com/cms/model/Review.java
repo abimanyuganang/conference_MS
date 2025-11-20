@@ -29,4 +29,8 @@ public class Review {
     @JoinColumn(name = "reviewer_id")
     private Author reviewer;
 
+    public void setReviewId (Long reviewId){
+        this.reviewId=reviewId;
+    }
+
 }

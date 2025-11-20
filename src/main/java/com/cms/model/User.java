@@ -2,9 +2,11 @@ package com.cms.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
+@Table(name = "`users`")
 @Entity
 public class User {
 

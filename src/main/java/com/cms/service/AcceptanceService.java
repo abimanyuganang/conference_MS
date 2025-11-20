@@ -36,7 +36,7 @@ public class AcceptanceService {
     // 4. Update user by ID
     public Acceptance updAcceptance(Long id, Acceptance uAcceptance) {
         if (acceptanceRepo.existsById(id)) {  
-            uAcceptance.setAcceptId(id);  
+            uAcceptance.setAcceptId(id); 
             return acceptanceRepo.save(uAcceptance); 
         }
         return null;  
