@@ -20,7 +20,7 @@ public class User {
     private String affiliation;
 
     // Getters and Setters
-    public Long getUserID(){
+    public Long getUserId(){
         return userId;
     }
 
@@ -28,7 +28,7 @@ public class User {
         return name;
     }
 
-    public String getEmailId(){
+    public String getEmail(){
         return email;
     }
 

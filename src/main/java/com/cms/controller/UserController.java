@@ -2,68 +2,56 @@ package com.cms.controller;
 
 import com.cms.model.User;
 import com.cms.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
+    
+    @Autowired
+    private UserService userService;
 
-    private final UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
-
-    // 1. GET all users
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
-        return ResponseEntity.ok(users);
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-    // 2. GET user by ID
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        return userService.getUserById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        Optional<User> user = userService.getUserById(id);
+        return user.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    // 3. CREATE new user
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
-        User newUser = userService.createUser(user);
-        return ResponseEntity.ok(newUser);
+        User savedUser = userService.createUser(user);
+        return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
-    // 4. UPDATE user
     @PutMapping("/{id}")
-    public ResponseEntity<User> updateUser(
-            @PathVariable Long id,
-            @RequestBody User updatedUser
-    ) {
-        User user = userService.updateUser(id, updatedUser);
-
-        if (user == null) {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
+        User updatedUser = userService.updateUser(id, user);
+        if (updatedUser != null) {
+            return new ResponseEntity<>(updatedUser, HttpStatus.OK);
         }
-
-        return ResponseEntity.ok(user);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    // 5. DELETE user
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         boolean deleted = userService.deleteUser(id);
-
-        if (!deleted) {
-            return ResponseEntity.notFound().build();
+        if (deleted) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-
-        return ResponseEntity.noContent().build();
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
-

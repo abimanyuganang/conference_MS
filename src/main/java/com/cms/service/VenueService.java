@@ -19,7 +19,7 @@ public class VenueService {
     }
 
     // 1. Get all users
-    public List<Venue> getALlVenues() {
+    public List<Venue> getAllVenues() {
         return venueRepo.findAll();  
     }
 

@@ -6,11 +6,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Table(name = "`attendance`")
 @Entity
 public class Attendance {
 
@@ -24,10 +26,6 @@ public class Attendance {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "venue_id")
-    private Venue venue;
 
     public void setAttendanceId (Long attendanceId){
         this.attendanceId=attendanceId;

@@ -5,12 +5,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.persistence.JoinColumn;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Table(name = "`author`")
 @Entity
 public class Author {
 
@@ -24,7 +26,7 @@ public class Author {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public void setAuthordId (Long authorId){
+    public void setAuthorId (Long authorId){
         this.authorId=authorId;
     }
 }
