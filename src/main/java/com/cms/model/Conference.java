@@ -8,11 +8,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import java.util.List;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 @Table(name = "`conference`")
 @Entity
 public class Conference {
@@ -28,7 +24,51 @@ public class Conference {
     @OneToMany(mappedBy = "conference")
     private List<PaperSubmission> paperSubmissions;
 
-    public void setConfId (Long confId){
-        this.confId=confId;
+    public Long getConfId() {
+        return confId;
+    }
+
+    public void setConfId(Long confId) {
+        this.confId = confId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public List<PaperSubmission> getPaperSubmissions() {
+        return paperSubmissions;
+    }
+
+    public void setPaperSubmissions(List<PaperSubmission> paperSubmissions) {
+        this.paperSubmissions = paperSubmissions;
     }
 }

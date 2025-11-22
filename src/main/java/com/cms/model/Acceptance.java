@@ -7,11 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 @Table(name = "`acceptance`")
 @Entity
 public class Acceptance {
@@ -27,7 +23,43 @@ public class Acceptance {
     @JoinColumn(name = "paper_id")
     private PaperSubmission paperSubmission;
 
-    public void setAcceptId (Long acceptId){
-        this.acceptId=acceptId;
+    public Long getAcceptId() {
+        return acceptId;
+    }
+
+    public void setAcceptId(Long acceptId) {
+        this.acceptId = acceptId;
+    }
+
+    public String getDecision() {
+        return decision;
+    }
+
+    public void setDecision(String decision) {
+        this.decision = decision;
+    }
+
+    public String getLetterSent() {
+        return letterSent;
+    }
+
+    public void setLetterSent(String letterSent) {
+        this.letterSent = letterSent;
+    }
+
+    public String getSendDate() {
+        return sendDate;
+    }
+
+    public void setSendDate(String sendDate) {
+        this.sendDate = sendDate;
+    }
+
+    public PaperSubmission getPaperSubmission() {
+        return paperSubmission;
+    }
+
+    public void setPaperSubmission(PaperSubmission paperSubmission) {
+        this.paperSubmission = paperSubmission;
     }
 }

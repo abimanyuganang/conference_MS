@@ -1,17 +1,13 @@
 package com.cms.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 @Table(name = "`review`")
 @Entity
 public class Review {
@@ -31,8 +27,51 @@ public class Review {
     @JoinColumn(name = "reviewer_id")
     private Author reviewer;
 
-    public void setReviewId (Long reviewId){
-        this.reviewId=reviewId;
+    public Long getReviewId() {
+        return reviewId;
     }
 
+    public void setReviewId(Long reviewId) {
+        this.reviewId = reviewId;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public String getReviewDate() {
+        return reviewDate;
+    }
+
+    public void setReviewDate(String reviewDate) {
+        this.reviewDate = reviewDate;
+    }
+
+    public PaperSubmission getPaperSubmission() {
+        return paperSubmission;
+    }
+
+    public void setPaperSubmission(PaperSubmission paperSubmission) {
+        this.paperSubmission = paperSubmission;
+    }
+
+    public Author getReviewer() {
+        return reviewer;
+    }
+
+    public void setReviewer(Author reviewer) {
+        this.reviewer = reviewer;
+    }
 }

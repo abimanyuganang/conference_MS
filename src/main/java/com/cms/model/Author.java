@@ -7,11 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.JoinColumn;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 @Table(name = "`author`")
 @Entity
 public class Author {
@@ -26,7 +22,35 @@ public class Author {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public void setAuthorId (Long authorId){
-        this.authorId=authorId;
+    public Long getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(Long authorId) {
+        this.authorId = authorId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAffiliation() {
+        return affiliation;
+    }
+
+    public void setAffiliation(String affiliation) {
+        this.affiliation = affiliation;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

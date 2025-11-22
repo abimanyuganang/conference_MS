@@ -7,11 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 @Table(name = "`attendance`")
 @Entity
 public class Attendance {
@@ -27,7 +23,43 @@ public class Attendance {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public void setAttendanceId (Long attendanceId){
-        this.attendanceId=attendanceId;
+    public Long getAttendanceId() {
+        return attendanceId;
+    }
+
+    public void setAttendanceId(Long attendanceId) {
+        this.attendanceId = attendanceId;
+    }
+
+    public String getCheckinTime() {
+        return checkinTime;
+    }
+
+    public void setCheckinTime(String checkinTime) {
+        this.checkinTime = checkinTime;
+    }
+
+    public String getCheckoutTime() {
+        return checkoutTime;
+    }
+
+    public void setCheckoutTime(String checkoutTime) {
+        this.checkoutTime = checkoutTime;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
